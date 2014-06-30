@@ -1,0 +1,50 @@
+<!-- this project is AWESOME to swap picture to another picture - everytime u click it -->
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>jQuery Basic</title> <!--tab will show--> 
+		<link rel="stylesheet" type="text/css" href="basic3.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript"> 
+
+		// Remember that we kept emphasizing that HTML should contain the information, CSS the looks and JS the behavior.
+
+		$(document).ready(function(){
+			$('img').click(function(){
+				// as a getter to store old src , before swapping
+				var k = $(this).attr('src');
+				// as a setter to replace old src with new src
+				$(this).attr('src',$(this).attr('data-alt-src'));
+				// as a setter to replace new src's position w/ old src value (stored under var k)
+				$(this).attr('data-alt-src',k);
+
+				  console.log('data-alt-src value is', $(this).attr('data-alt-src'));
+				  // console.log is just a message we are telling the website to proceed the following msg, which is... $(this).attr('data-alt-src')) -> whichever img got clicked -> change that image ($(this)) 's source to data-alt-src , which was already set in html body! 
+			})
+		});
+
+		// $(document).ready(function(){
+		// 	$('img').click(function(){
+		// 	  console.log('data-alt-src value is', $(this).attr('data-alt-src'));
+		// 	});
+		// })		
+	
+		</script>
+	</head>
+
+	<body>
+		<img src="c1.png" data-alt-src="n1.png"/>
+		<img src="c2.png" data-alt-src="n2.png"/>
+		<img src="c3.png" data-alt-src="n3.png"/>
+		<img src="c4.png" data-alt-src="n4.png"/>
+		<img src="c5.png" data-alt-src="n5.png"/>
+			
+		<!-- originally, u may need this set, and manually when c1 is clicked, then n1 will be show function, then call that function inside document.ready function -> but with special "data-alt-src" saves lots of time  -->
+<!-- 	<img src="n1.png"/>
+		<img src="n2.png"/>
+		<img src="n3.png"/>
+		<img src="n4.png"/>
+		<img src="n5.png"/> -->
+	</body>
+</html>
